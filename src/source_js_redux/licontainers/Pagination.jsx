@@ -38,8 +38,6 @@ class Pagination extends React.Component {
     setPage(page) {
         var items = this.props.items;
 
-        //console.log(items, "ssssssssss");
-
         var pager = this.state.pager;
 
         if (page < 1 || page > pager.totalPages) {
