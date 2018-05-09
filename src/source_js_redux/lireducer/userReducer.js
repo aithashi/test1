@@ -13,13 +13,9 @@ export default function(state333 = initial, action) {
             state333 = liSortRowsBy(state333, initial.sortBy, initial.sortDir);
 			break;
 
-        case "USER_SORT":
-            state333 = liSortRowsBy(state333, action.sortColumn, action.sortDirection);
-			break;
+        case "USER_SORT": state333 = liSortRowsBy(state333, action.sortColumn, action.sortDirection); break;
 
-        case "PAGINATION":
-            state333 = { ...state333, pageUserArr: [action.payload]}
-			break;
+        case "PAGINATION": state333 = { ...state333, pageUserArr: [action.payload]}; break;
 
         case "SEARCH_USER":            
             state333 = liSearchUserBy(state333, action.payload);
