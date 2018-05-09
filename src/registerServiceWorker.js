@@ -31,14 +31,8 @@ export default function register() {
 
     window.addEventListener('load', () => {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
-
-      if (isLocalhost) {
-        // This is running on localhost. Lets check if a service worker still exists or not.
-        checkValidServiceWorker(swUrl);
-      } else {
-        // Is not local host. Just register service worker
-        registerValidSW(swUrl);
-      }
+      if (isLocalhost) { checkValidServiceWorker(swUrl); }
+       else {registerValidSW(swUrl)}
     });
   }
 }
@@ -77,25 +71,12 @@ function checkValidServiceWorker(swUrl) {
   fetch(swUrl)
     .then(response => {
       // Ensure service worker exists, and that we really are getting a JS file.
-      if (
-        response.status === 404 ||
-        response.headers.get('content-type').indexOf('javascript') === -1
-      ) {
-        // No service worker found. Probably a different app. Reload the page.
-        navigator.serviceWorker.ready.then(registration => {
-          registration.unregister().then(() => {
-            window.location.reload();
-          });
+      if ( response.status === 404 || response.headers.get('content-type').indexOf('javascript') === -1 ) {
+          navigator.serviceWorker.ready.then(registration => { registration.unregister().then(() => {  window.location.reload() });
         });
-      } else {
-        // Service worker found. Proceed as normal.
-        registerValidSW(swUrl);
-      }
+      } else { registerValidSW(swUrl) }
     })
-    .catch(() => {
-      console.log(
-        'No internet connection found. App is running in offline mode.'
-      );
+    .catch(() => { console.log('No internet connection found. App is running in offline mode.');
     });
 }
 

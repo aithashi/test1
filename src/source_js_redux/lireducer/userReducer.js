@@ -173,9 +173,7 @@ const liSortRowsBy = (state22, sortByKey, sortDir) => {
         
         var sortDirArrow = "";
 
-        if(sortDir1 !== null) { 
-            sortDirArrow = sortDir1 === 'DESC' ? ' ⇓' : ' ⇑' 
-        }
+        if(sortDir1 !== null) { sortDirArrow = sortDir1 === 'DESC' ? ' ⇓' : ' ⇑' }
 
         state22 = {...state22, data: [rowsMain], sort: [rowsSub], sortBy: sortBy1, sortDir: sortDir1, sortArrow: sortDirArrow, pageUserArr: [rowsSub]};
         return state22;
@@ -184,15 +182,9 @@ const liSortRowsBy = (state22, sortByKey, sortDir) => {
 const liSortRowsBy1 = (rowsSub,sortBy1,sortDir1) =>{
     rowsSub.sort((a, b) => {
         var sortVal = 0;
-        if(a.value[sortBy1] > b.value[sortBy1]) {
-            sortVal = 1;
-        }
-        if(a.value[sortBy1] < b.value[sortBy1]) {
-            sortVal = -1;
-        }
-        if(sortDir1 === 'DESC') {
-            sortVal = sortVal * - 1;
-        }
+        if(a.value[sortBy1] > b.value[sortBy1]) { sortVal = 1; }
+        if(a.value[sortBy1] < b.value[sortBy1]) { sortVal = -1 }
+        if(sortDir1 === 'DESC') { sortVal = sortVal * - 1 }
         return sortVal;
     });
 
