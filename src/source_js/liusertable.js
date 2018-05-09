@@ -1,50 +1,28 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './liusertable.css';
-
-import {
-            Table,
-            TableBody,
-            TableHeader,
-            TableHeaderColumn,
-            TableRow,
-            TableRowColumn,
-        } from 'material-ui/Table';
-
+import {Table,TableBody,TableHeader,TableHeaderColumn,TableRow,TableRowColumn} from 'material-ui/Table';
 import { List, ListItem } from 'material-ui/List';
 import { blue500 } from 'material-ui/styles/colors';
-
 import Avatar from 'material-ui/Avatar';
 import FontIcon from 'material-ui/FontIcon';
-
 import IconButton from 'material-ui/IconButton';
 import FlatButton from 'material-ui/FlatButton';
-
 import RaisedButton from 'material-ui/RaisedButton';
-
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import Dialog from 'material-ui/Dialog';
-//import ActionHome from 'material-ui/svg-icons/action/home';
 import DropDownMenu from 'material-ui/DropDownMenu';
-//import FontIcon from 'material-ui/FontIcon';
-
 import SearchBar from 'material-ui-search-bar';
 import Pagination from './Pagination';
 import UserEditComp from 'my-usermgmt-comp';
-
 import SwipeableViews from 'react-swipeable-views';
 import {Tabs, Tab} from 'material-ui/Tabs';
-
-//import SelectField from 'material-ui/SelectField';
-//import MenuItem from 'material-ui/MenuItem';
-//import TextField from 'material-ui/TextField';
 
 function convertStringToArray(object){
     var arr = Object.keys(object).map(function(k) {
         return {key: k, value: object[k]}
     });
-
     return arr;
 }
 
@@ -54,42 +32,12 @@ class LiUserTable extends Component {
 
     constructor(props) {
         super(props);
-
         this.state = {
-                        mainUserArr: [],
-                        pageUserArr: [],
-                        subUserArr: [],
-                        showCheckboxes: false,
-                        edit_open: false,
-                        delete_open: false,
-
-                        countAdvSearchComp: 0,
-                        advSearchRowIDArr: [0],
-                        selectedOption: 1,
-
-                        slideIndex: 0,
-
-                        uid: 0,
-                        activePage: 1,
-                        sortBy: "full_name",
-                        sortDir: "DESC",
-                        dummyUserArr: convertObjectToArray({
-                            "0000": {
-                                    "profile_pix": "",
-                                    "full_name": "",
-                                    "code": "",
-                                    "status": "",
-                                    "company_name": "",
-                                    "dept": "",
-                                    "email": "",
-                                    "extn": "",
-                                    "ac_status": ""
-                                }
-                        })
+                        mainUserArr: [], pageUserArr: [], subUserArr: [], showCheckboxes: false, edit_open: false, delete_open: false, countAdvSearchComp: 0,advSearchRowIDArr: [0], selectedOption: 1,
+                        slideIndex: 0,uid: 0,activePage: 1,sortBy: "full_name",sortDir: "DESC",
+                        dummyUserArr: convertObjectToArray({"0000": {"profile_pix": "","full_name": "","code": "","status": "","company_name": "","dept": "","email": "","extn": "","ac_status": ""}})
                     };
-
         this.fieldNamesArray = ["Full Name", "Code", "Status", "Company Name", "Department", "Email", "Extension", "Acnt Status"];
-
         this.handleChangePage = this.handleChangePage.bind(this);
         this.handleSortChange = this.handleSortChange.bind(this);
         this.handleAddMore = this.handleAddMore.bind(this);
@@ -97,50 +45,37 @@ class LiUserTable extends Component {
         this.doAdvancedSearch = this.doAdvancedSearch.bind(this);
     }
 
-    /*
-    handleComboChange = (event, index, value) => {
-        //var compValue = event.nativeEvent.target.textContent; 
-        var compValue = event.target.value; 
-        var compID = event.target.id;
-        this.setState({ [compID]: var compValue  });
-    }
-    */
-
     handleTabChange = (value) => {
         this.setState({ slideIndex: value });
     };
 
     handleOptionChange(changeEvent) {
         this.setState({
-            selectedOption: parseInt(changeEvent.target.value, 10)
+        selectedOption: parseInt(changeEvent.target.value, 10)
         });
     }
 
     handleInputChange(event) {
         const inputValue = event.target.value;
         const compID = event.target.id;
-
         this.setState({ [compID]: inputValue });
     }
 
     handleComboChange(event) {
         const compValue = event.target.value;
         const compID = event.target.id;
-
         this.setState({ [compID]: compValue });
     }
 
     handleStatusComboChange(event) {
         const compValue = event.target.value;
         const compID = event.target.id;
-
         this.setState({ [compID]: compValue });    
     }
 
     handleAcStatusComboChange(event) {
         const compValue = event.target.value;
         const compID = event.target.id;
-
         this.setState({ [compID]: compValue });
     }
 
@@ -149,7 +84,6 @@ class LiUserTable extends Component {
     }
 
     handleChangePage(pageOfItems) {
-        // update state with new page of items
         this.setState({ pageUserArr: pageOfItems });
     }
 
