@@ -43,9 +43,16 @@
     font-style: normal;
 }
 
+
+
+
 html, body, div, span, td{
     font-family: 'Roboto-Regular';
 }
+
+
+
+
 
 /* bootstrap for pagination */
 .pagination {
@@ -141,6 +148,7 @@ border-top-right-radius: 0.2rem;
 
 .LiUserTable_headerLink {
     display: block;
+    
     padding: 2px;
     cursor: pointer;
     color: #213e5c;
