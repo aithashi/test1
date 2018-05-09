@@ -1,36 +1,9 @@
-const initial = {
-					data: [],
-					sort: [],
-					pageUserArr: [],
-					sortDir: "ASC",
-					sortBy: "full_name",
-					sortArrow: "",
-					edit_open: false,
-					delete_open: false,
-					uid: 0,
-					dummyUserArr: [{
-										"0000": {
-												"profile_pix": "",
-												"full_name": "",
-												"code": "",
-												"status": "",
-												"company_name": "",
-												"dept": "",
-												"email": "",
-												"extn": "",
-												"ac_status": ""
-												}
-									}],
-					userDataObj: {},
-					fieldNamesArray: ["Full Name", "Code", "Status", "Company Name", "Department", "Email", "Extension", "Acnt Status"],
-					slideIndex: 0,
-					advSearchRowIDArr: [0],
-					countAdvSearchComp: 0,
-					selectedOption: 1,
-					inputField: {},
-					selectField: {},
-					statusCombo: {},
-					accStatusCombo: {},
+const initial = 
+{ 
+    data: [],sort: [],pageUserArr: [],sortDir: "ASC",sortBy: "full_name",sortArrow: "",edit_open: false,delete_open: false,uid: 0,
+	dummyUserArr: [{"0000": { "profile_pix": "","full_name": "","code": "","status": "","company_name": "","dept": "","email": "","extn": "","ac_status": ""}}],
+	fieldNamesArray: ["Full Name", "Code", "Status", "Company Name", "Department", "Email", "Extension", "Acnt Status"],
+	slideIndex: 0,advSearchRowIDArr: [0],countAdvSearchComp: 0,selectedOption: 1,inputField: {},selectField: {},statusCombo: {},accStatusCombo: {},userDataObj: {}
 }
 
 export default function(state333 = initial, action) {
