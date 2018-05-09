@@ -22,7 +22,6 @@ class LiDialogueBox extends Component {
         var self = this;
         axios.get("https://business-portal.lisec.com/test/json_users_update.php?user_code=" + this.props.users.uid + "&user_obj=" + JSON.stringify(updatedUserDataObj))
         .then(function(response) {
-            // console.log("UPDATE success: " + response);
             self.handleDialogClose();
             self.props.onDialogClose();
         })
@@ -33,7 +32,6 @@ class LiDialogueBox extends Component {
         var self = this;        
         axios.get("https://business-portal.lisec.com/test/json_users_delete.php?user_code=" + this.props.users.uid)
         .then(function(response) {
-            // console.log("DELETE success: " + response);
             self.handleDialogClose();
             self.props.onDialogClose();
         })
