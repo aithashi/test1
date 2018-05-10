@@ -8,65 +8,22 @@ const initial =
 
 export default function(state333 = initial, action) {
     switch(action.type) {
-        case "USER_SELECTED":
-            state333 = {...state333, data: [action.payload], sort: [action.payload], pageUserArr: [action.payload], userDataObj: action.dataObj };
-            state333 = liSortRowsBy(state333, initial.sortBy, initial.sortDir);
-			break;
-
+        case "USER_SELECTED": state333 = {...state333, data: [action.payload], sort: [action.payload], pageUserArr: [action.payload], userDataObj: action.dataObj }; state333 = liSortRowsBy(state333, initial.sortBy, initial.sortDir); break;
         case "USER_SORT": state333 = liSortRowsBy(state333, action.sortColumn, action.sortDirection); break;
-
         case "PAGINATION": state333 = { ...state333, pageUserArr: [action.payload]}; break;
-
-        case "SEARCH_USER":            
-            state333 = liSearchUserBy(state333, action.payload);
-			break;
-
-        case "HANDLE_OPEN_EDIT":            
-            state333 = lihandleOpenEdit(state333, action.payload);
-			break;
-
-        case "HANDLE_OPEN_DELETE":            
-            state333 = liHandleOpenDelete(state333, action.payload);
-			break;
-
-        case "CLOSE_EDIT_DELETE":                
-            state333 = liCloseOpenDelete(state333, action.payload);
-			break;
-        
-        case "SET_SLIDE_INDEX":            
-            state333 = setSlideindex(state333, action.payload);
-			break;
-       
-        case "HANDLE_ADD_MORE":            
-            state333 = handleAddMore(state333, action.count, action.arr);
-			break;
-
-        case "DELETE_ROW":                
-            state333 = handleDeleteRow(state333, action.count, action.arr);
-			break;
-
-        case "HANDLE_OPTION_CHANGE":                
-            state333 = handleOptionChange(state333, action.payload);
-			break;
-
-        case "HANDLE_INPUT_CHANGE":                
-            state333 = handleInputChange(state333, action.inputValue, action.compId);
-			break;
-
-        case "HANDLE_COMBO_CHANGE":                
-            state333 = handleComboChange(state333, action.compValue, action.compId);
-			break;
-
-        case "HANDLE_STATUS_COMBO_CHANGE":                
-            state333 = handleStatusComboChange(state333, action.compValue, action.compId);
-			break;
-
-        case "HANDLE_ACC_STATUS_COMBO_CHANGE":                
-            state333 = handleAcStatusComboChange(state333, action.compValue, action.compId);
-			break;
-    }
-
-    return state333;
+        case "SEARCH_USER": state333 = liSearchUserBy(state333, action.payload); break;
+        case "HANDLE_OPEN_EDIT": state333 = lihandleOpenEdit(state333, action.payload); break;
+        case "HANDLE_OPEN_DELETE": state333 = liHandleOpenDelete(state333, action.payload); break;
+        case "CLOSE_EDIT_DELETE": state333 = liCloseOpenDelete(state333, action.payload); break;
+        case "SET_SLIDE_INDEX": state333 = setSlideindex(state333, action.payload); break;
+        case "HANDLE_ADD_MORE": state333 = handleAddMore(state333, action.count, action.arr); break;
+        case "DELETE_ROW": state333 = handleDeleteRow(state333, action.count, action.arr); break;
+        case "HANDLE_OPTION_CHANGE": state333 = handleOptionChange(state333, action.payload); break;
+        case "HANDLE_INPUT_CHANGE": state333 = handleInputChange(state333, action.inputValue, action.compId); break;
+        case "HANDLE_COMBO_CHANGE": state333 = handleComboChange(state333, action.compValue, action.compId); break;
+        case "HANDLE_STATUS_COMBO_CHANGE": state333 = handleStatusComboChange(state333, action.compValue, action.compId); break;
+        case "HANDLE_ACC_STATUS_COMBO_CHANGE":  state333 = handleAcStatusComboChange(state333, action.compValue, action.compId); break;
+    } return state333;
 }
 
 const handleAcStatusComboChange = (state, compValue, compId) => {
