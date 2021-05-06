@@ -17,7 +17,7 @@
     "react-swipeable-views": "^0.12.12",
     "recompose": "^0.26.0",
     "redux": "^3.7.2",
-    "underscore": "^1.8.3",
+    "underscore": "^1.12.1",
     "useredit-new": "0.0.7"
   },
   "scripts": {
